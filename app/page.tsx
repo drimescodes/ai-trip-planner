@@ -259,7 +259,7 @@ export default function TripPlannerPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex w-full space-x-2">
+            <div className="flex flex-col space-y-3 sm:flex-row w-full space-x-2">
               <Input
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}

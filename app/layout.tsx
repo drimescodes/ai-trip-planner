@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Trip Planner",
     description: "Plan your next trip with AI — powered by Agentbase",
-    url: "https://ai-trip-planner-6j49.vercel.app",
+    url: "https://ai-trip-planner-pi-six.vercel.app",
     siteName: "AI Trip Planner",
     images: [
       {
