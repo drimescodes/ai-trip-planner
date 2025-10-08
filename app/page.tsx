@@ -87,8 +87,16 @@ interface SDKResponse {
 function parseLenientJson(jsonString: string) {
   try {
     return JSON.parse(jsonString);
-  } catch (e) {
-    console.warn("Standard JSON.parse failed. Attempting advanced cleanup...");
+  } catch (e:unknown) {
+    if (e instanceof Error) {
+      console.warn(
+        "Standard JSON.parse failed:",
+        e.message,
+        "Attempting advanced cleanup..."
+      );
+    } else {
+      console.warn("Standard JSON.parse failed. Attempting advanced cleanup...");
+    }
     const jsonMatch = jsonString.match(/\[[\s\S]*\]|{[\s\S]*}/);
     if (!jsonMatch) {
       throw new Error("Failed to find any JSON-like block in the response.");
@@ -238,7 +246,7 @@ export default function TripPlannerPage() {
       ? 'Mock Mode (No API Call)'
       : 'Live API (Uses Credits)'}
   </Label>
-  
+
   </div>
         <Card className="mb-8 shadow-lg">
           <CardHeader>
